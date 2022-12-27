@@ -641,10 +641,9 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
-ember-unused-components@^1.2.0:
+ember-unused-components@rtablada/ember-unused-components#rt/path-flexibility:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ember-unused-components/-/ember-unused-components-1.2.0.tgz#c8defc2521316b3c5d3a765fc87185620bd356a3"
-  integrity sha512-uC37Rpf4nRw+xsdDvmRsQTWr1vkRqYi5zfPeGsp2B0Mi9wtjB9pBro1EQh7Huw7A9EuewDXFZMUtLs2uB8xYtQ==
+  resolved "https://codeload.github.com/rtablada/ember-unused-components/tar.gz/e91c82c49a26f7f19b84e68573c3311f43c74f7b"
   dependencies:
     colors "1.4.0"
     fs-extra "8.1.0"
