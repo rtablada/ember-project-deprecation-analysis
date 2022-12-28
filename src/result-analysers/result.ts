@@ -36,6 +36,7 @@ export interface PodResult extends DirectoryResult {
   controllerPath?: string;
 }
 
-export interface ApplicationResult extends DirectoryResult {
+export interface ApplicationResult {
   componentResults: ComponentResult[];
+  appResults: PodResult;
 }

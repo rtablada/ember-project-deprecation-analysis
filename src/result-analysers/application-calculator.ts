@@ -30,11 +30,11 @@ export class ApplicationResultCalculator extends PodResultCalculator {
   }
 
   getResult(): ApplicationResult {
-    const baseResult = super.getResult();
+    const appResults = super.getResult();
 
     return {
       componentResults: this.componentsResult,
-      ...baseResult,
+      appResults,
     };
   }
 

@@ -2,7 +2,7 @@ import { DirectoryResultCalculator } from './directory-calculator';
 import { PodResult } from './result';
 
 export class PodResultCalculator extends DirectoryResultCalculator {
-  getResult(): PodResult {
+  getResult(): PodResult | any {
     const existingResults = super.getResult();
     const childrenResults = existingResults.children;
 
