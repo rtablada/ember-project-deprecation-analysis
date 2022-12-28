@@ -14,10 +14,13 @@ export class JavascriptClassCalculator extends BaseResultCalculator {
 
   getDeprecationInfo() {
     const deprecations = this.context.getDeprecationsForJavascript(this.podFileTree.path);
+    const lintErrors = this.context.getLintIgnoresForJavascript(this.podFileTree.path);
 
     return {
       deprecationsFound: deprecations,
       deprecationsCount: deprecations.length,
+      lintErrorsFound: lintErrors,
+      lintErrorsCount: lintErrors.length,
     };
   }
 

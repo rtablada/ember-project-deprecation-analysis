@@ -11,6 +11,8 @@ export interface DeprecationAnalyserResult extends ComponentsUsedResult {
   componentsUsed: string[];
   deprecationsCount: number;
   deprecationsFound: string[];
+  lintErrorsCount: number;
+  lintErrorsFound: string[];
 }
 
 export interface PodAnalyserFileResult extends DeprecationAnalyserResult {

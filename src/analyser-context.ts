@@ -15,24 +15,37 @@ import { TemplateCalculator } from './result-analysers/template-calculator';
 import { ApplicationResultCalculator } from './result-analysers/application-calculator';
 import { PodResultCalculator } from './result-analysers/pod-calculator';
 import ComponentDataManager from './component-data-manager';
+import { CONFIG } from './config';
+
+const templateLintDeprecations = CONFIG['lint-to-the-future-ember-template'].lintRules,
+  esLintDeprecations = CONFIG['lint-to-the-future-eslint'].lintRules;
+
+const isValidTemplateDeprecation = (lintRule) => templateLintDeprecations.includes(lintRule);
+const isValidEslintDeprecation = (lintRule) => esLintDeprecations.includes(lintRule);
 
 export class AnalyserContext {
   componentResultsRecord: Record<string, ComponentResult>;
   applicationCalculator: ApplicationResultCalculator;
   componentDataManager: ComponentDataManager;
 
-  getDeprecationsForTemplate(path: string): string[] {
+  getLintIgnoresForTemplate(path: string): string[] {
     const appPath = this.getRelativePath(path);
 
-    return Object.keys(this.templateLintResults).filter((deprecationName) =>
-      this.templateLintResults[deprecationName].includes(appPath)
+    return Object.keys(this.templateLintResults).filter((lintRule) =>
+      this.templateLintResults[lintRule].includes(appPath)
     );
   }
 
+  getDeprecationsForTemplate(path: string): string[] {
+    return this.getLintIgnoresForTemplate(path).filter(isValidTemplateDeprecation);
+  }
+
+  getLintIgnoresForJavascript(path: string): string[] {
+    return Object.keys(this.eslintResults).filter((lintRule) => this.eslintResults[lintRule].includes(path));
+  }
+
   getDeprecationsForJavascript(path: string): string[] {
-    return Object.keys(this.eslintResults).filter((deprecationName) =>
-      this.eslintResults[deprecationName].includes(path)
-    );
+    return this.getLintIgnoresForJavascript(path).filter(isValidEslintDeprecation);
   }
 
   getComponentsUsed(path: string): string[] {
