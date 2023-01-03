@@ -19,8 +19,8 @@ export const CONFIG = {
   },
   'lint-to-the-future-eslint': {
     lintRules: [
-      'no-implicit-service-injection',
-      'no-deprecated-router-transition-methods',
+      'ember/no-implicit-injections',
+      'ember/no-deprecated-router-transition-methods',
       'ember/require-computed-property-dependencies',
       'ember/no-classic-classes',
       'ember/no-controller-access-in-routes',
