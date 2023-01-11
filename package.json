@@ -1,6 +1,6 @@
 {
   "name": "ember-project-deprecation-analysis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "repository": "git@github.com:rtablada/ember-project-deprecation-analysis.git",
   "author": "Ryan Tablada <ryan.tablada@gmail.com>",
