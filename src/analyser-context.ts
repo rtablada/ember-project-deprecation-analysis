@@ -98,6 +98,9 @@ export class AnalyserContext {
       case 'template.hbs':
         calculator = new TemplateCalculator(this, podFileTree);
         break;
+      case 'component.js':
+        calculator = new JavascriptClassCalculator(this, podFileTree, 'component');
+        break;
       case 'controller.js':
         calculator = new JavascriptClassCalculator(this, podFileTree, 'controller');
         break;
